@@ -11,8 +11,9 @@ public class DisjointSetUnion {
 
   // Find parent of x
   int find(int x) {
+    // If element is the parent
     if (arr[x] == x) {
-      return x;
+      return -1;
     }
     return arr[x] = find(arr[x]);
   }
@@ -24,5 +25,19 @@ public class DisjointSetUnion {
 
     // Same parent for x and y
     arr[parentOfY] = parentOfX;
+  }
+
+  void printArray() {
+    String elementParents = "|  ";
+    String elementIndexes = "|   ";
+    
+
+    for (int element : this.arr) {
+      elementParents += find(element) + "  | ";
+      elementIndexes += element + "  |  "; 
+    } 
+
+    System.out.println("Element parents: " + elementParents);
+    System.out.println("Element indexes: " + elementIndexes);
   }
 }
