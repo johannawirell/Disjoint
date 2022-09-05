@@ -21,16 +21,8 @@ public class DisjointSetUnion {
   }
 
   void union(int x, int y) {
-    // Find parent of x and y
-    int parentOfX = find(x);
-    int parentOfY = find(y);  
-
     // Set same parent for x and y
-    if (parentOfY < 0) {
-      arr[x] = y;  
-    } else {
-      arr[y] = parentOfX;
-    }
+    arr[y] = find(x);
   }
 
   void printArray() {
@@ -53,5 +45,6 @@ public class DisjointSetUnion {
 
     System.out.println("Index:  " + elementIndexes);
     System.out.println("Parent: " + elementParents);
+    System.out.println();
   }
 }
