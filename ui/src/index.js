@@ -110,6 +110,10 @@ function main() {
 
   printElements(elements, parents)
 
+  dsu.unionByHeight(5, 6)
+
+  printElements(elements, parents)
+
 }
 
 main()

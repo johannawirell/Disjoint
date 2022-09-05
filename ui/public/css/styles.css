@@ -31,8 +31,9 @@
 }
 
 .parent {
-  width: 100px;
+  width: 92px;
   text-align: center;
+  border: solid 1px;
   border-style: none solid;
 }
 
