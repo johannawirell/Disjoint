@@ -25,6 +25,21 @@ public class DisjointSetUnion {
     arr[y] = x;
   }
 
+  void unionByHeight(int x, int y) {
+    // If y is deeper make y the new root
+    if (arr[y] < arr[x]) {
+      System.out.println(y + " is deeper than " + x);
+      arr[x] = y;
+    } else {
+      // If same deep decrease the number of x
+      if (arr[x] == arr[y]) {
+        System.out.println(x + " is the same as " + y);
+        arr[x]--; 
+      }
+      arr[y] = x;
+    }
+  }
+
   void printArray() {
     String elementIndexes = "|  ";
     String elementParents = "| ";
@@ -35,7 +50,7 @@ public class DisjointSetUnion {
 
       // If element is the root print [-1]
       if (parent == i) {
-        elementParents += -1 + " | ";  
+        elementParents += arr[i] + " | ";  
       } else {
       // Else print the parent
         elementParents += find(i) + "  | ";
