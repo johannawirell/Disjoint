@@ -1,0 +1,28 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "description": "UI for Disjoint Set union",
+  "type": "module",
+  "browser": "js/index.js",
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Johanna Wirell",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.19",
+    "snowpack": "^3.8.8"
+  },
+  "snowpack": {
+    "mount": {
+      "public": "/",
+      "src": "/js"
+    },
+    "devOptions": {
+      "bundle": false
+    }
+
+  }
+}
