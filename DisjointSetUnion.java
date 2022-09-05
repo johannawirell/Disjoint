@@ -10,7 +10,7 @@ public class DisjointSetUnion {
     }
   }
 
-  // Find parent of x
+  // Find root of x
   int find(int x) {
     // If x is the root 
     if (arr[x] < 0) {
@@ -28,14 +28,19 @@ public class DisjointSetUnion {
   void unionByHeight(int x, int y) {
     // If y is deeper make y the new root
     if (arr[y] < arr[x]) {
-      System.out.println(y + " is deeper than " + x);
+      System.out.println(y + " (" + arr[y]+ ") is deeper than " + x + "(" + arr[x]+ ")");
       arr[x] = y;
+      arr[y]--; 
     } else {
       // If same deep decrease the number of x
       if (arr[x] == arr[y]) {
         System.out.println(x + " is the same as " + y);
         arr[x]--; 
+      } else {
+        System.out.println(y + " (" + arr[y]+ ") is not as deep as " + x + "(" + arr[x]+ ")");
+        System.out.println("Find parent of : " + x + " = " + find(x));
       }
+
       arr[y] = x;
     }
   }
