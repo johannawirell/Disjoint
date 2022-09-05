@@ -1,43 +1,57 @@
 public class DisjointSetUnion {
-  private int[] arr;
+  int[] arr;
 
-  DisjointSetUnion(int n) {
-    this.arr = new int[n];
+  DisjointSetUnion(int numberOfElements) {
+    this.arr = new int[numberOfElements];
 
-    for (int i = 0; i < n; i++) {
-      arr[i] = i;
+    // All elements are the root element [-1]
+    for (int i = 0; i < arr.length; i++) {
+      arr[i] = -1;
     }
   }
 
   // Find parent of x
   int find(int x) {
-    // If element is the parent
-    if (arr[x] == x) {
-      return -1;
-    }
-    return arr[x] = find(arr[x]);
+    // If x is the root 
+    if (arr[x] < 0) {
+      return x;
+    } 
+    // Else find the parent on the x's parent
+   return find(arr[x]);
   }
 
   void union(int x, int y) {
     // Find parent of x and y
     int parentOfX = find(x);
-    int parentOfY = find(y);
+    int parentOfY = find(y);  
 
-    // Same parent for x and y
-    arr[parentOfY] = parentOfX;
+    // Set same parent for x and y
+    if (parentOfY < 0) {
+      arr[x] = y;  
+    } else {
+      arr[y] = parentOfX;
+    }
   }
 
   void printArray() {
-    String elementParents = "|  ";
-    String elementIndexes = "|   ";
+    String elementIndexes = "|  ";
+    String elementParents = "| ";
     
+    for (int i = 0; i < arr.length; i++) {
+      elementIndexes += i + " |  "; 
+      int parent = find(i);
 
-    for (int element : this.arr) {
-      elementParents += find(element) + "  | ";
-      elementIndexes += element + "  |  "; 
+      // If element is the root print [-1]
+      if (parent == i) {
+        elementParents += -1 + " | ";  
+      } else {
+      // Else print the parent
+        elementParents += find(i) + "  | ";
+      }
+      
     } 
 
-    System.out.println("Element parents: " + elementParents);
-    System.out.println("Element indexes: " + elementIndexes);
+    System.out.println("Index:  " + elementIndexes);
+    System.out.println("Parent: " + elementParents);
   }
 }
