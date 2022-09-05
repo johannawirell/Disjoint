@@ -4,7 +4,7 @@ function printElements(arr) {
   // Delete previous content
   const treediv = document.querySelector('.tree')
   while(treediv.firstChild){
-    treediv.removeChild(div.firstChild);
+    treediv.removeChild(treediv.firstChild);
   }
   
   for (const element of arr) {
@@ -24,7 +24,7 @@ function printParents(arr) {
   // Delete previous content
   const parentdiv = document.querySelector('.parents')
   while(parentdiv.firstChild){
-    parentdiv.removeChild(div.firstChild);
+    parentdiv.removeChild(parentdiv.firstChild);
   }
 
   for (const parent of arr) {
@@ -46,14 +46,14 @@ function main() {
   const elements = dsu.getElementIndexes();
   const parents = dsu.getParents();
 
-  console.log("Elements: " + elements)
-  console.log("Parents: " + parents)
+  printElements(elements)
+  printParents(parents)
+
+  dsu.unionByHeight(0, 1)
 
   printElements(elements)
   printParents(parents)
 
-  printElements(elements)
-  printParents(parents)
 }
 
 main()
