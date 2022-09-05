@@ -15,9 +15,10 @@ public class DisjointSetUnion {
     // If x is the root 
     if (arr[x] < 0) {
       return x;
-    } 
-    // Else find the parent on the x's parent
-   return find(arr[x]);
+    } else {
+      // Return set that containing x
+      return arr[x] = find(arr[x]);
+    }
   }
 
   void union(int x, int y) {
@@ -38,7 +39,6 @@ public class DisjointSetUnion {
         arr[x]--; 
       } else {
         System.out.println(y + " (" + arr[y]+ ") is not as deep as " + x + "(" + arr[x]+ ")");
-        System.out.println("Find parent of : " + x + " = " + find(x));
       }
 
       arr[y] = x;
