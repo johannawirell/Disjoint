@@ -52,8 +52,6 @@ function modifyHeight(treediv) {
 
           // Add 100 px to element
           element.style.marginTop = newMargin
-
-          return
         }
       }
       
@@ -105,6 +103,10 @@ function main() {
   printElements(elements, parents)
 
   dsu.unionByHeight(4, 5)
+
+  printElements(elements, parents)
+
+  dsu.unionByHeight(0, 1)
 
   printElements(elements, parents)
 
