@@ -1,9 +1,11 @@
 import { DSU } from './DSU.js' 
 
 function createNewDiv(className) {
+  let nodes = document.querySelectorAll("." + className)
+  let oldDiv = nodes[nodes.length -1]
   const newDiv = document.createElement("div");
   newDiv.classList.add(className)
-  newDiv.id = newDiv.id + 1
+  newDiv.id = parseInt(oldDiv.id) + 1
 
   document.querySelector('body').appendChild(newDiv)
 
@@ -38,7 +40,6 @@ function printParents(arr) {
 
   // Create a new parent div
   if (parentdiv.firstChild != undefined) {
-    console.log('there is one parent div')
     parentdiv = createNewDiv('parents')
 
   }
@@ -67,7 +68,9 @@ function main() {
 
   printElements(elements, parents)
 
+  dsu.unionByHeight(3, 1)
 
+  printElements(elements, parents)
 }
 
 main()

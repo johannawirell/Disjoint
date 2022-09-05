@@ -3,6 +3,13 @@
   width: 800px;
 }
 
+.tree::before {
+  content: attr(id);
+  text-align: center;
+  font-size: 50px;
+  width: 50px;
+}
+
 .element {
   height: 100px;
   width: 100px;
@@ -17,7 +24,7 @@
 }
 
 .parents {
-  margin: 50px 0;
+  margin: 50px;
   width: 800px;
   display: flex;
   border: black solid;
