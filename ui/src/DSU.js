@@ -26,16 +26,16 @@ export class DSU {
     let arr = this.arr
     // If y is deeper make y the new root
     if (arr[y] < arr[x]) {
-      console.log(y + " (" + arr[y]+ ") is deeper than " + x + "(" + arr[x]+ ")");
+      // console.log(y + " (" + arr[y]+ ") is deeper than " + x + "(" + arr[x]+ ")");
       arr[x] = y;
       arr[y]--; 
     } else {
       // If same deep decrease the number of x
       if (arr[x] == arr[y]) {
-        console.log(x + " is the same as " + y);
+        // console.log(x + " is the same as " + y);
         arr[x]--; 
       } else {
-        console.log(y + " (" + arr[y]+ ") is not as deep as " + x + "(" + arr[x]+ ")");
+        // console.log(y + " (" + arr[y]+ ") is not as deep as " + x + "(" + arr[x]+ ")");
       }
 
       arr[y] = x;
