@@ -1,10 +1,21 @@
 import { DSU } from './DSU.js' 
 
+function createNewDiv(className) {
+  const newDiv = document.createElement("div");
+  newDiv.classList.add(className)
+  newDiv.id = newDiv.id + 1
+
+  document.querySelector('body').appendChild(newDiv)
+
+  return newDiv
+}
+
 function printElements(arr, parents) {
-  // Delete previous content
-  const treediv = document.querySelector('.tree')
-  while(treediv.firstChild){
-    treediv.removeChild(treediv.firstChild);
+  let treediv = document.querySelector('.tree')
+
+  // Create a new tree div
+  if (treediv.firstChild != undefined) {
+    treediv = createNewDiv('tree')
   }
   
   for (let i = 0; i < arr.length; i++) {
@@ -23,10 +34,13 @@ function printElements(arr, parents) {
 }
 
 function printParents(arr) {
-  // Delete previous content
-  const parentdiv = document.querySelector('.parents')
-  while(parentdiv.firstChild){
-    parentdiv.removeChild(parentdiv.firstChild);
+  let parentdiv = document.querySelector('.parents')
+
+  // Create a new parent div
+  if (parentdiv.firstChild != undefined) {
+    console.log('there is one parent div')
+    parentdiv = createNewDiv('parents')
+
   }
 
   for (const parent of arr) {
@@ -50,6 +64,8 @@ function main() {
   printElements(elements, parents)
 
   dsu.unionByHeight(0, 1)
+
+  printElements(elements, parents)
 
 
 }
