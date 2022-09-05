@@ -22,7 +22,7 @@ public class DisjointSetUnion {
 
   void union(int x, int y) {
     // Set same parent for x and y
-    arr[y] = find(x);
+    arr[y] = x;
   }
 
   void printArray() {
