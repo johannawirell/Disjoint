@@ -1,16 +1,19 @@
+.tree {
+  display: flex;
+  width: 800px;
+}
+
 .element {
   height: 100px;
   width: 100px;
-  margin: 20px; 
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
   border-radius: 50%; /* may require vendor prefixes */
   background: red;
 }
 
 .element p {
+  font-size: 30px;
   color: white;
+  text-align: center;
 }
 
 .parents {
