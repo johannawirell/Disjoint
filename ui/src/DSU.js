@@ -42,6 +42,19 @@ export class DSU {
     }
   }
 
+  getParents() {
+    return this.arr
+  }
+
+  getElementIndexes() {
+    let indexes = []
+    for (let i = 0; i < this.arr.length; i++) {
+      const index = this.find(i)
+      indexes.push(index)
+    }
+    return indexes
+  }
+
   printArray() {
     let arr = this.arr
     let elementIndexes = "|  ";
