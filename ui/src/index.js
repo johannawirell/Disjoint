@@ -2,10 +2,8 @@ import { DSU } from './DSU.js'
 
 function printElements(arr) {
   const treediv = document.querySelector('.tree')
-  // console.log(treediv)
 
   for (const element of arr) {
-    console.log(element)
     const newDiv = document.createElement("div");
     const newP = document.createElement("p")
     const newContent = document.createTextNode(element)
@@ -15,6 +13,22 @@ function printElements(arr) {
     newP.appendChild(newContent);
     newDiv.appendChild(newP);
     treediv.appendChild(newDiv)
+  }
+}
+
+function printParents(arr) {
+  const parentdiv = document.querySelector('.parents')
+
+  for (const parent of arr) {
+    console.log(parent)
+    const newDiv = document.createElement("div");
+    const newP = document.createElement("p")
+    const newContent = document.createTextNode(parent)
+    newDiv.classList.add('parent')
+
+    newP.appendChild(newContent);
+    newDiv.appendChild(newP);
+    parentdiv.appendChild(newDiv)
   }
 }
 
@@ -28,6 +42,7 @@ function main() {
   console.log("Parents: " + parents)
 
   printElements(elements)
+  printParents(parents)
 }
 
 main()

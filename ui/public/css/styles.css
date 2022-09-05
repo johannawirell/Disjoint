@@ -13,3 +13,17 @@
   color: white;
 }
 
+.parents {
+  margin: 50px 0;
+  width: 800px;
+  display: flex;
+  border: black solid;
+}
+
+.parent {
+  width: 100px;
+  text-align: center;
+  border-style: none solid;
+}
+
+
