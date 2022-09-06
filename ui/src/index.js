@@ -66,8 +66,19 @@ function printPointers(treediv) {
     element.insertBefore(newDiv, pElement); 
 
     if (parent > -1) {
-      console.log(element)
-      console.log('not the root')
+      for (const element of elements) {
+        if (element.classList[1] == parent) {
+          const parentP = element.querySelector('p')
+
+          const parentStyle = parentP.currentStyle || window.getComputedStyle(parentP)
+          const parentMargin = parentStyle.marginTop
+          const marginValue = parentMargin.replace(/\D/g, '')
+          const newMargin = (parseInt(marginValue) + 100) + "px"
+
+          // Add 100 px to element
+          pElement.style.marginTop = newMargin
+        }
+      }
     } 
 
   }
