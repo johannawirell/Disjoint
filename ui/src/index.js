@@ -52,18 +52,18 @@ function printElement(index, root, treediv) {
 function printPointers(treediv) {
   const elements = treediv.querySelectorAll('.element')
 
-  for (const element of elements) {
-    const parent = element.getAttribute('id')
-    const pElement = element.querySelector('p')
+  for (const divElement of elements) {
+    const parent = divElement.getAttribute('id')
+    const pElement = divElement.querySelector('p')
     const newDiv = document.createElement("div");
-    const pointTo = element.id
+    const pointTo = divElement.id
     
     const newContent = document.createTextNode(pointTo)
-    newDiv.appendChild(newContent);
+    newDiv.appendChild(newContent)
 
     newDiv.classList.add('pointer')
 
-    element.insertBefore(newDiv, pElement); 
+    divElement.insertBefore(newDiv, pElement)
 
     if (parent > -1) {
       for (const element of elements) {
@@ -76,7 +76,7 @@ function printPointers(treediv) {
           const newMargin = (parseInt(marginValue) + 100) + "px"
 
           // Add 100 px to element
-          pElement.style.marginTop = newMargin
+          divElement.style.marginTop = newMargin
         }
       }
     } 
