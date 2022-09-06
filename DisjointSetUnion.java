@@ -28,7 +28,7 @@ public class DisjointSetUnion {
 
   void unionByHeight(int x, int y) {
     // If y is deeper make y the new root
-    if (arr[y] < arr[x]) {
+    if (arr[y] < arr[x] && arr[x] <= 0) {
       System.out.println(y + " (" + arr[y]+ ") is deeper than " + x + "(" + arr[x]+ ")");
       arr[x] = y;
       arr[y]--; 
@@ -39,6 +39,8 @@ public class DisjointSetUnion {
         arr[x]--; 
       } else {
         System.out.println(y + " (" + arr[y]+ ") is not as deep as " + x + "(" + arr[x]+ ")");
+        int root = find(x);
+        arr[root]--;
       }
 
       arr[y] = x;
