@@ -68,9 +68,7 @@ function printPointers(treediv) {
     if (parent > -1) {
       for (const element of elements) {
         if (element.classList[1] == parent) {
-          const parentP = element.querySelector('p')
-
-          const parentStyle = parentP.currentStyle || window.getComputedStyle(parentP)
+          const parentStyle = element.currentStyle || window.getComputedStyle(element)
           const parentMargin = parentStyle.marginTop
           const marginValue = parentMargin.replace(/\D/g, '')
           const newMargin = (parseInt(marginValue) + 100) + "px"
