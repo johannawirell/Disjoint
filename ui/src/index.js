@@ -31,32 +31,8 @@ function printElements(arr, parents) {
     } 
   }
 
-  if (needToModify) {
-    modifyHeight(treediv)
-  } 
+  printPointers(treediv) 
   printParents(parents)
-}
-
-function modifyHeight(treediv) {
-  const elements = treediv.querySelectorAll('.element')
-
-  for (const element of elements) {
-    if (element.id >= 0) {
-      // Find parent element margin top
-      for(const parent of elements) {
-        if (parent.textContent == element.id) {
-          const parentstyle = parent.currentStyle || window.getComputedStyle(parent);
-          const parentMargin = parentstyle.marginTop
-          const marginValue = parentMargin.replace(/\D/g, '')
-          const newMargin = (parseInt(marginValue) + 100) + "px"
-
-          // Add 100 px to element
-          element.style.marginTop = newMargin
-        }
-      }
-      
-    }
-  }  
 }
 
 function printElement(index, root, treediv) {
@@ -71,6 +47,30 @@ function printElement(index, root, treediv) {
   newP.appendChild(newContent);
   newDiv.appendChild(newP);
   treediv.appendChild(newDiv);  
+}
+
+function printPointers(treediv) {
+  const elements = treediv.querySelectorAll('.element')
+
+  for (const element of elements) {
+    const parent = element.getAttribute('id')
+    const pElement = element.querySelector('p')
+    const newDiv = document.createElement("div");
+    const pointTo = element.id
+    
+    const newContent = document.createTextNode(pointTo)
+    newDiv.appendChild(newContent);
+
+    newDiv.classList.add('pointer')
+
+    element.insertBefore(newDiv, pElement); 
+
+    if (parent > -1) {
+      console.log(element)
+      console.log('not the root')
+    } 
+
+  }
 }
 
 function printParents(arr) {
@@ -106,13 +106,18 @@ function main() {
 
   printElements(elements, parents)
 
-  dsu.unionByHeight(0, 1)
+  // dsu.unionByHeight(0, 1)
 
-  printElements(elements, parents)
+  // printElements(elements, parents)
 
-  dsu.unionByHeight(5, 6)
+  // // Om den man ska koppla till redan ingår i en annan serie X
+  // // Koppla ihop det nya elementet med denna serie X
+  // //            __4__
+  // //            |   |
+  // //            5   6
+  // dsu.unionByHeight(5, 6)
 
-  printElements(elements, parents)
+  // printElements(elements, parents)
 
 }
 

@@ -10,17 +10,21 @@
   width: 50px;
 }
 
-.element {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%; /* may require vendor prefixes */
-  background: red;
-}
-
 .element p {
   font-size: 30px;
   color: white;
   text-align: center;
+
+  width: 100px;
+  line-height: 100px;
+  border-radius: 50%; 
+  background: red;
+  margin: 0;
+}
+
+.pointer {
+  text-align: center;
+  
 }
 
 .parents {
@@ -37,4 +41,30 @@
   border-style: none solid;
 }
 
+
+
+
+
+
+/*.tree123 ul {
+	padding-top: 20px; position: relative;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+*/
+
+ .tree123 li {
+	float: left; 
+  text-align: center;
+	list-style-type: none;
+	position: relative;
+	padding: 20px 5px 0 5px;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+} 
 
