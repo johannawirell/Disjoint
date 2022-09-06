@@ -25,17 +25,18 @@ export class DSU {
   unionByHeight(x, y) {
     let arr = this.arr
     // If y is deeper make y the new root
-    if (arr[y] < arr[x]) {
-      // console.log(y + " (" + arr[y]+ ") is deeper than " + x + "(" + arr[x]+ ")");
+    
+    if (arr[y] < arr[x] && arr[x] <= 0) {
+      // console.log(y + " (" + arr[y]+ ") is deeper than " + x + "(" + arr[x]+ ")")
       arr[x] = y;
       arr[y]--; 
     } else {
       // If same deep decrease the number of x
       if (arr[x] == arr[y]) {
-        // console.log(x + " is the same as " + y);
         arr[x]--; 
       } else {
-        // console.log(y + " (" + arr[y]+ ") is not as deep as " + x + "(" + arr[x]+ ")");
+        const root = this.find(x)
+        this.arr[root]--
       }
 
       arr[y] = x;

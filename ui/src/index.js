@@ -117,18 +117,17 @@ function main() {
 
   printElements(elements, parents)
 
-  // dsu.unionByHeight(0, 1)
+  dsu.unionByHeight(0, 1)
 
-  // printElements(elements, parents)
+  printElements(elements, parents)
 
-  // // Om den man ska koppla till redan ingår i en annan serie X
-  // // Koppla ihop det nya elementet med denna serie X
-  // //            __4__
-  // //            |   |
-  // //            5   6
-  // dsu.unionByHeight(5, 6)
+  dsu.unionByHeight(5, 6)
 
-  // printElements(elements, parents)
+  printElements(elements, parents)
+
+  dsu.unionByHeight(7, 4)
+
+  printElements(elements, parents)
 
 }
 
